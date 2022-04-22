@@ -1,2 +1,2 @@
-# Cocktail---How-did-i-make-this-
+# Cocktail How did i make this ?
 Django project
