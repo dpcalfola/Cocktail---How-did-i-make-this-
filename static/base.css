@@ -1,6 +1,8 @@
 body {
     background-color: #361500;
     color: #CC9544;
+    font-family: 'Hi Melody', cursive;
+    font-size: 1.5rem;
 }
 
 a {
@@ -9,6 +11,15 @@ a {
 
 a:hover {
     color: #A64B2A;
+}
+
+.normal_font {
+    font-family: 'Hi Melody', cursive;
+
+}
+
+.title_css {
+    font-size: 3rem;
 }
 
 .main_logo {
@@ -59,12 +70,13 @@ a:hover {
     color: #D8B6A4;
     background-color: #6c757d77;
 }
-.button_css:hover{
+
+.button_css:hover {
     color: #D8B6A4;
     background-color: #495057;
 }
 
-.search_css, .search_css:focus  {
+.textfield_css, .textfield_css:focus {
     background-color: beige;
 }
 

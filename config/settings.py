@@ -42,7 +42,8 @@ DJANGO_APPS = [
 ]
 
 PROJECT_APPS = [
-    'main.apps.MainConfig'
+    'main.apps.MainConfig',
+    'users.apps.UsersConfig',
 ]
 
 INSTALLED_APPS = DJANGO_APPS + PROJECT_APPS
@@ -82,7 +83,6 @@ WSGI_APPLICATION = 'config.wsgi.application'
 
 # DB information from secrets
 DATABASES = secret_env.HOWDIMT_DATABASES
-
 
 # DATABASES = {
 #     'default': {
@@ -133,3 +133,6 @@ STATICFILES_DIRS = [
 # https://docs.djangoproject.com/en/4.0/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+# Login redirect
+LOGIN_REDIRECT_URL = '/'

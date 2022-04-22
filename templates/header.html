@@ -9,7 +9,7 @@
                 <li class="nav-item"><a href="#" class="nav_menu_css nav-link px-2">About</a></li>
             </ul>
             <ul class="nav">
-                <li class="nav-item"><a href="#" class="account_link nav-link px-3">Login</a></li>
+                <li class="nav-item"><a href="{% url 'users:login' %}" class="account_link nav-link px-3">Login</a></li>
                 <li class="nav-item"><a href="#" class="account_link nav-link px-3">Sign up</a></li>
             </ul>
         </div>
@@ -19,11 +19,11 @@
             <a href="/" class="d-flex align-items-center mb-3 mb-lg-0 me-lg-auto text-dark text-decoration-none">
                 <span class="main_logo">Cocktail ☆ How did i make this?</span>
             </a>
-            <form class="col-12 col-lg-auto my-auto d-flex">
-                <input type="search" class="search_css form-control mx-2" placeholder="" aria-label="Search">
-                <button type="submit" class="button_css btn">Search</button>
-            </form>
         </div>
     </header>
+    <div class="my-1 visually-hidden">
+        <hr>
+
+    </div>
 </div>
 
