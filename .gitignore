@@ -133,3 +133,6 @@ dmypy.json
 
 # venv
 venv_hdimt
+
+# node modules
+node_modules

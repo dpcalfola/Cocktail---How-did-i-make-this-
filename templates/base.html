@@ -1,0 +1,17 @@
+{% load static %}
+
+<!doctype html>
+<html lang="en">
+{% include 'head.html' %}
+
+<body>
+{% include 'header.html' %}
+
+{% block content %}
+{% endblock %}
+
+{% include 'footer.html' %}
+{# Bootstrap .js #}
+<script src="{% static 'dist/js/bootstrap.js' %}"></script>
+</body>
+</html>

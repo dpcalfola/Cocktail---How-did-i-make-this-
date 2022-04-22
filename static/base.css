@@ -1,0 +1,80 @@
+body {
+    background-color: #361500;
+    color: #CC9544;
+}
+
+a {
+    color: #CC9544;
+}
+
+a:hover {
+    color: #A64B2A;
+}
+
+.main_logo {
+    font-size: 3rem;
+    font-family: 'Kirang Haerang', cursive;
+    padding-bottom: 0.5rem;
+    color: #D8B6A4;
+    letter-spacing: 0.2rem;
+
+}
+
+.nav_css {
+    background-color: #1C0A00;
+}
+
+
+.nav_menu_css {
+    font-size: 1.5rem;
+    font-family: 'Hi Melody', cursive;
+    /*color: #361500;*/
+    color: #CC9544;
+}
+
+.nav_menu_css:hover {
+    color: #A64B2A;
+}
+
+.account_link {
+    font-size: 1.3rem;
+    font-family: 'Kirang Haerang', cursive;
+    /*color: #361500;*/
+    color: #CC9544;
+    letter-spacing: 0.3rem;
+}
+
+.account_link:hover {
+    color: #A64B2A;
+}
+
+.header_hr {
+    margin-top: -2rem;
+}
+
+.button_css {
+    font-size: 1.3rem;
+    letter-spacing: 0.4rem;
+    font-family: 'Hi Melody', cursive;
+    color: #D8B6A4;
+    background-color: #6c757d77;
+}
+.button_css:hover{
+    color: #D8B6A4;
+    background-color: #495057;
+}
+
+.search_css, .search_css:focus  {
+    background-color: beige;
+}
+
+
+.footer_css {
+    font-size: 1.4rem;
+    font-family: 'Hi Melody', cursive;
+    background-color: #1C0A00;
+}
+
+
+
+
