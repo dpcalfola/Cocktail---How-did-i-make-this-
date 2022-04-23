@@ -9,8 +9,19 @@
                 <li class="nav-item"><a href="#" class="nav_menu_css nav-link px-2">About</a></li>
             </ul>
             <ul class="nav">
-                <li class="nav-item"><a href="{% url 'users:login' %}" class="account_link nav-link px-3">Login</a></li>
-                <li class="nav-item"><a href="#" class="account_link nav-link px-3">Sign up</a></li>
+                {% if user.is_authenticated %}
+                    <li class="nav-item"><a href="#" class="account_link nav-link px-3">{{ user.username }}</a></li>
+                    <li class="nav-item"><a href="{% url 'users:logout' %}" class="account_link nav-link px-3">Logout</a></li>
+                {% else %}
+                    <li class="nav-item">
+                        <a href="{% url 'users:login' %}" class="account_link nav-link px-3">Login</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#" class="account_link nav-link px-3">Sign up</a>
+                    </li>
+                {% endif %}
+
+
             </ul>
         </div>
     </nav>
