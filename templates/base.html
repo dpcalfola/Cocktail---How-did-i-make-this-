@@ -2,7 +2,16 @@
 
 <!doctype html>
 <html lang="en">
-{% include 'head.html' %}
+<head>
+    {% include 'head.html' %}
+
+    {% block specific_css %}
+    {% endblock %}
+
+
+    <title>How Dimt cocktail</title>
+</head>
+
 
 <body>
 {% include 'header.html' %}

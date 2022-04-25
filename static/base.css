@@ -1,8 +1,10 @@
 body {
-    background-color: #361500;
+    /*background-color: #361500;*/
+    background-color: #361500e6;
     color: #CC9544;
     font-family: 'Hi Melody', cursive;
     font-size: 1.5rem;
+
 }
 
 a {
@@ -32,7 +34,8 @@ a:hover {
 }
 
 .nav_css {
-    background-color: #1C0A00;
+    /*background-color: #1C0A00;*/
+    background-color: #1c0a0082;
 }
 
 .nav_menu_css {
@@ -83,7 +86,8 @@ a:hover {
 .footer_css {
     font-size: 1.4rem;
     font-family: 'Hi Melody', cursive;
-    background-color: #1C0A00;
+    /*background-color: #1C0A00;*/
+    background-color: #1c0a0082;
 }
 
 
