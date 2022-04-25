@@ -1,6 +1,6 @@
 {% extends 'base.html' %}
 {% block content %}
-    <div class="container w-50 float-start ms-5">
+    <div class="container">
         <div class="container">
             <h1 class="title_css mt-5">Login</h1>
         </div>
@@ -8,15 +8,16 @@
             {% csrf_token %}
             {% include 'form_errors.html' %}
             <div class="my-1 mt-3">
+
                 <label for="username">ID</label>
-                <input type="text" class="textfield_css form-control" name="username" id="username"
+                <input type="text" class="textfield_css" name="username" id="username"
                        value="{{ form.username.value|default_if_none:'' }}">
             </div>
             <div class="my-1 mt-3">
                 <label for="password">PASSWORD</label>
-                <input type="password" class="textfield_css form-control" name="password" id="password">
+                <input type="password" class="textfield_css" name="password" id="password">
             </div>
-            <button class="btn button_css my-1 mt-4 float-end" type="submit">login</button>
+            <button class="btn button_css my-1 mt-4" type="submit">login</button>
         </form>
     </div>
 
