@@ -44,6 +44,7 @@ DJANGO_APPS = [
 PROJECT_APPS = [
     'main.apps.MainConfig',
     'users.apps.UsersConfig',
+    'market_price.apps.MarketPriceConfig'
 ]
 
 INSTALLED_APPS = DJANGO_APPS + PROJECT_APPS
