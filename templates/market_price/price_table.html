@@ -1,5 +1,6 @@
 {% extends 'base.html' %}
 {% load static %}
+{% load humanize %}
 
 {% block specific_css %}
     {# head block#}
@@ -11,16 +12,18 @@
 
 
     <div class="container my-5 opacity-100">
-        <h3>주류 시세 정보</h3>
+        <h3>주류 가격 정보 공유</h3>
 
         {% if price_list %}
-            {#  레코드가 1개 이상 존재할 때 : 테이블 표시  #}
+            {#  If there is no price data, It does not create table #}
             <div class="mt-4">
+                {# "table_css" includes: background-color #}
                 <table class="table_css table table-sm table-striped">
                     <thead>
                     <tr>
                         <th scope="col">#</th>
-                        <th scope="col">주종</th>
+                        <th scope="col">대분류</th>
+                        <th scope="col">소분류</th>
                         <th scope="col">이름</th>
                         <th scope="col">라인업</th>
                         <th scope="col">숙성년도</th>
@@ -36,17 +39,56 @@
                     {% for price in price_list %}
                         <tr>
                             <th scope="row">{{ forloop.counter }}</th>
-                            <td>{{ price.category }}</td>
+                            <td>{{ price.category_1 }}</td>
+                            <td>{{ price.category_2 }}</td>
                             <td>{{ price.name }}</td>
                             <td>{{ price.lineup }}</td>
-                            <td>{{ price.aged }}</td>
-                            <td>₩ {{ price.price }}</td>
-                            <td>{{ price.size }}ml</td>
+
+                            {# 숙성년도 값이 None 이라면 year 을 표시하지 않음 #}
+                            {% if price.aged %}
+                                <td>{{ price.aged }} year</td>
+                            {% else %}
+                                <td>{{ price.aged }}</td>
+                            {% endif %}
+
+                            <td>₩ {{ price.price | intcomma }}</td>
+                            <td>{{ price.size }} ml</td>
                             <td>{{ price.purchasing_route }}</td>
                             <td>{{ price.confirmation_date }}</td>
                             <td>{{ price.note }}</td>
                         </tr>
                     {% endfor %}
+
+
+
+                    {# Dummy Data - blue color table #}
+                    {% for price in price_list_dummy %}
+
+                        {# class="table_css_dummy" includes: Dummyu data recorde color -> blue #}
+                        <tr class="table_css_dummy">
+
+                            {# Dummy price_list forloop counter follows index of real prices #}
+                            <th scope="row">{{ forloop.counter|add:price_list.count }}</th>
+                            <td>{{ price.category_1 }}</td>
+                            <td>{{ price.category_2 }}</td>
+                            <td>{{ price.name }} ** 더미데이터 입니다</td>
+                            <td>{{ price.lineup }}</td>
+
+                            {# 숙성년도 값이 None 이라면 year 을 표시하지 않음 #}
+                            {% if price.aged %}
+                                <td>{{ price.aged }} year</td>
+                            {% else %}
+                                <td>{{ price.aged }}</td>
+                            {% endif %}
+
+                            <td>₩ {{ price.price | intcomma }}</td>
+                            <td>{{ price.size }} ml</td>
+                            <td>{{ price.purchasing_route }}</td>
+                            <td>{{ price.confirmation_date }}</td>
+                            <td>{{ price.note }}</td>
+                        </tr>
+                    {% endfor %}
+
 
                     </tbody>
                 </table>

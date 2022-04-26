@@ -22,7 +22,8 @@ class DrinkPriceInformation(models.Model):
     # CharField -> blank=True
     # Integer -> blank=True, null=True
 
-    category = models.CharField(max_length=30, blank=True)
+    category_1 = models.CharField(max_length=30, blank=True)
+    category_2 = models.CharField(max_length=30, blank=True)
     name = models.CharField(max_length=50)
     lineup = models.CharField(max_length=50, blank=True)
     aged = models.PositiveIntegerField(blank=True, null=True)

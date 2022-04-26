@@ -39,6 +39,9 @@ DJANGO_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+
+    # 정수 3자리마다 콤마 찍기 위한 추가 장고 앱
+    'django.contrib.humanize',
 ]
 
 PROJECT_APPS = [
