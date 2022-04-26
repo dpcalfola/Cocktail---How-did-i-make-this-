@@ -1,6 +1,6 @@
 from django.contrib import admin
 
 # Register your models here.
-from .models import DrinkPriceInformation
+from .models import LiqueurPriceInformation
 
-admin.site.register(DrinkPriceInformation)
+admin.site.register(LiqueurPriceInformation)

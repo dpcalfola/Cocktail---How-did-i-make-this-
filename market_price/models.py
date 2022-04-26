@@ -1,7 +1,7 @@
 from django.db import models
 
 
-class DrinkPriceInformation(models.Model):
+class LiqueurPriceInformation(models.Model):
     """
     주종 (varchar 30 blank=True 위스키, 보드카, 럼...
     이름 (varchar 50 글렌피딕, 아드벡, 아마레또...

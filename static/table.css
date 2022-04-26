@@ -5,3 +5,19 @@
 .table_css_dummy {
     background-color: #035397;
 }
+
+.table_input_text_css {
+    background-color: #CE9461;
+    border: none;
+    border-bottom: solid 1px;
+    outline: none;
+    margin: 0 0 0.4rem 0;
+}
+
+.table_input_text_css_required {
+    background-color: #CE9461;
+    border: none;
+    border-bottom: solid 3px darkred;
+    outline: none;
+    margin: 0 0 0.4rem 0;
+}

@@ -1,11 +1,11 @@
 from django.shortcuts import render
-from .models import DrinkPriceInformation
+from .models import LiqueurPriceInformation
 
 
 def price_table(request):
     # price_list = DrinkPriceInformation.objects.order_by('-confirmation_date')
-    price_list = DrinkPriceInformation.objects.exclude(note='더미데이터').order_by('-confirmation_date')
-    price_list_dummy = DrinkPriceInformation.objects.filter(note='더미데이터').order_by('-confirmation_date')
+    price_list = LiqueurPriceInformation.objects.exclude(note='더미데이터').order_by('-confirmation_date')
+    price_list_dummy = LiqueurPriceInformation.objects.filter(note='더미데이터').order_by('-confirmation_date')
 
     context = {
         'price_list': price_list,
