@@ -24,7 +24,7 @@
         </div>
         {# Input collapse table form start form here #}
         <div class="collapse my-4" id="collapse_price_info">
-            <form action="" method="post">
+            <form action="{% url 'market_price:insert_price_info' %}" method="post">
                 {% csrf_token %}
                 <table class="table_css table table-sm table-striped">
                     <thead>
@@ -69,7 +69,8 @@
                         </td>
                         <td>
                             <label><input name="input_liqueur_name" id="input_liqueur_name" type="text"
-                                          style="width:8rem;" class="table_input_text_css_required" placeholder="필수"></label></td>
+                                          style="width:8rem;" class="table_input_text_css_required"
+                                          placeholder="필수"></label></td>
                         <td>
                             <label><input name="input_lineup" id="input_lineup" type="text" style="width:6rem;"
                                           class="table_input_text_css"></label>
@@ -80,7 +81,7 @@
                         </td>
                         <td>
                             <label><input name="input_price" id="input_price" type="text" style="width:6rem;"
-                                           class="table_input_text_css_required" placeholder="필수"></label>
+                                          class="table_input_text_css_required" placeholder="필수"></label>
                         </td>
                         <td>
                             <label><input name="input_size" id="input_size" type="text" style="width:6rem;"
@@ -88,7 +89,8 @@
                         </td>
                         <td>
                             <label><input name="input_purchasing_route" id="input_purchasing_route" type="text"
-                                          style="width:6rem;" class="table_input_text_css_required" placeholder="필수"></label>
+                                          style="width:6rem;" class="table_input_text_css_required"
+                                          placeholder="필수"></label>
                         </td>
                         <td>
                             <label><input name="input_confirmation_date" id="input_confirmation_date" type="date"
@@ -108,6 +110,8 @@
             </form>
         </div>
         {# Collapse table code ended at this poiint #}
+
+
 
         {# START PRICE TABLE FROM HERE #}
         {% if price_list %}
