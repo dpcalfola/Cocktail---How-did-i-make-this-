@@ -24,7 +24,7 @@ class LiqueurPriceInformation(models.Model):
 
     category_1 = models.CharField(max_length=30, blank=True)
     category_2 = models.CharField(max_length=30, blank=True)
-    name = models.CharField(max_length=50)
+    liqueur_name = models.CharField(max_length=50)
     lineup = models.CharField(max_length=50, blank=True)
     aged = models.PositiveIntegerField(blank=True, null=True)
     price = models.PositiveIntegerField()
@@ -40,4 +40,4 @@ class LiqueurPriceInformation(models.Model):
     # author = models.ForeignKey()
 
     def __str__(self):
-        return self.name
+        return self.liqueur_name

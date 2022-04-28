@@ -1,6 +1,7 @@
 from django.shortcuts import render, redirect
 from django.utils import timezone
 from .models import LiqueurPriceInformation
+from .forms import CreateLiqueurPriceForm
 
 
 def price_table(request):
@@ -11,39 +12,38 @@ def price_table(request):
     context = {
         'price_list': price_list,
         'price_list_dummy': price_list_dummy,
-
     }
 
     return render(request, 'market_price/price_table.html', context)
 
 
 def insert_price_info(request):
-    """
+    if request.method == "POST":
+        price_form = CreateLiqueurPriceForm(request.POST)
+        if price_form.is_valid():
+            new_price = price_form.save(commit=False)
+            # 여기에서 생성할 객체의 작성자 계정 정보를 입력할 예정
+            new_price.save()
+            return redirect('market_price:price_table')
 
-    :param request:
-    :return:
-    """
+    # 여기서 else 구문이 필요한 이유가 이해되지 않음
+    # POST method form 의 summit 이 아니면 본 함수가 실행되는 경우의 수가 없는 것 같은데 왜 예제코드에서는 모두 GET 방식의 호출이 있을 것이라 생각하는지?
+    # 답: else 구문이 없으면 context에 price_form 을 담을 수 없다.
+    else:
+        price_form = CreateLiqueurPriceForm()
 
-    if request.method == 'POST':
-        form = LiqueurPriceInformation()
+    # Get Price info
+    price_list = LiqueurPriceInformation.objects.exclude(note='더미데이터').order_by('-confirmation_date')
+    price_list_dummy = LiqueurPriceInformation.objects.filter(note='더미데이터').order_by('-confirmation_date')
 
-        # Input data from form
-        form.category_1 = request.POST.get('input_category_1')
-        form.category_2 = request.POST.get('input_category_2')
-        form.name = request.POST.get('input_liqueur_name')
-        form.lineup = request.POST.get('input_lineup')
-        form.price = request.POST.get('input_price')
-        form.size = request.POST.get('input_size')
-        form.purchasing_route = request.POST.get('input_purchasing_route')
-        form.confirmation_date = request.POST.get('input_confirmation_date')
-        form.note = request.POST.get('input_note')
-        form.recoded_date = timezone.now()
+    context = {
+        'price_list': price_list,
+        'price_list_dummy': price_list_dummy,
+        'form': price_form,
 
-        # This code is the way to avoid Value Error:
-        # Django tries to insert ''(null string) to Integer field in DB
-        # But I don't know why Django doesn't translate null string to None
-        form.aged = request.POST.get('input_aged') if request.POST.get('input_aged') else None
+        # Collapse 를 기본으로 열려있게 하기 위한 context
+        'collapse_show': 'show',
+        'aria_expanded_true': 'true',
+    }
 
-        form.save()
-
-        return redirect('market_price:price_table')
+    return render(request, 'market_price/price_table.html', context)
