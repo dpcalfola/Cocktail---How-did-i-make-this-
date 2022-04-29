@@ -1,0 +1,48 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block specific_css %}
+    <link rel="stylesheet" type="text/css" href="{% static 'users.css' %}">
+{% endblock %}
+
+{% block content %}
+    <div class="container">
+        <div>
+            <h1>Sign Up </h1>
+            <h3>Create account using CreateView and User</h3>
+        </div>
+        <div class="row mt-4">
+            <form action="{% url 'users:create' %}" method="post">
+                {% csrf_token %}
+                {# note: username == use for ID (general perspective term) #}
+                {# input: username, password_1, password_2, email, nickname #}
+                <p>
+                    {#                    <span class="col-4 col-off">ID</span>#}
+                    <label>ID<input type="text" name="username" id="username" class="text_input_css" autocomplete="off">
+                    </label>
+                </p>
+                <p>
+                    <span class="col-4 col-off">Password</span>
+                    <label> <input type="password" name="password_1" id="password_1" class="text_input_css"
+                                   autocomplete="off"></label>
+                </p>
+                <p>
+                    <span class="col-4 col-off">Password 확인</span>
+                    <label> <input type="password" name="password_2" id="password_2" class="text_input_css"
+                                   autocomplete="off"> </label>
+                </p>
+                <p>
+                    <span class="col-4 col-off">email</span>
+                    <label> <input type="email" name="email" id="email" class="text_input_css" autocomplete="off">
+                    </label>
+                </p>
+                <p>
+                    <span class="col-4 col-off">닉네임</span>
+                    <label> <input type="text" name="nickname" id="nickname" class="text_input_css" autocomplete="off">
+                    </label>
+                </p>
+                <input type="submit" value="제출" class="btn btn-secondary mt-4 fs-5" style="width: 8rem">
+            </form>
+        </div>
+    </div>
+{% endblock %}

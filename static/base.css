@@ -78,11 +78,6 @@ a:hover {
     background-color: #495057;
 }
 
-.textfield_css, .textfield_css:focus {
-    background-color: beige;
-}
-
-
 .footer_css {
     font-size: 1.4rem;
     font-family: 'Hi Melody', cursive;
