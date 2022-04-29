@@ -86,7 +86,11 @@ WSGI_APPLICATION = 'config.wsgi.application'
 # https://docs.djangoproject.com/en/4.0/ref/settings/#databases
 
 # DB information from secrets
-DATABASES = secret_env.HOWDIMT_DATABASES
+# DB_1 Home network
+# DATABASES = secret_env.HOWDIMT_DATABASES
+
+# DB_2 External connect
+DATABASES = secret_env.HOWDIMT_DATABASES_ONLINE_SERVER
 
 # DATABASES = {
 #     'default': {

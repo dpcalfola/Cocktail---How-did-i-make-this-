@@ -9,10 +9,6 @@
 
 
 {% block content %}
-    {# form 을 잘 수신 했는지?   #}
-    {% if form %}
-        <h1>received form</h1>
-    {% endif %}
 
     <div class="container my-5">
         <div class="d-flex">
@@ -126,13 +122,13 @@
             </form>
 
             {# Show error massages #}
-            <div>
+            <div class="mb-5">
                 <span>{{ form.errors }}</span>
             </div>
         </div>
         {# Collapse table code ended at this poiint #}
 
-
+        {#  ******************************************************************************************************  #}
         {# START PRICE TABLE FROM HERE #}
         {% if price_list %}
             {#  If there is no price data, It does not create table #}
