@@ -7,8 +7,8 @@
 
 {% block content %}
     <div class="container">
-        <div class="mb-5">
-            <h1>Sign Up </h1>
+        <div class="container">
+            <h1 class="title_css mt-5">Signup</h1>
         </div>
         <div class="row mt-4">
             <form action="{% url 'users:create' %}" method="post">
@@ -58,7 +58,7 @@
                     >
                     {{ form.password2.errors }}
                 </p>
-                <p><input type="submit" class="btn btn-secondary fs-5 mt-4" style="width: 8rem;"></p>
+                <p><input type="submit" value="제출" class="btn btn-secondary fs-5" style="width: 8rem;"></p>
             </form>
         </div>
     </div>

@@ -23,7 +23,7 @@ def account_create(request):
     context = {
         'form': user_form,
     }
-    return render(request, 'users/create.html', context)
+    return render(request, 'users/signup.html', context)
 
 # Replaced this CBV to FBV but don't forget how to work this way
 # class AccountCreateView(CreateView):
