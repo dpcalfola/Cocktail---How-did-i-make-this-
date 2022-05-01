@@ -1,4 +1,10 @@
 {% extends 'base.html' %}
+{% load static %}
+{% block specific_css %}
+    <link rel="stylesheet" type="text/css" href="{% static 'users.css' %}">
+{% endblock %}
+
+
 {% block content %}
     <div class="container">
         <div class="container">
@@ -10,12 +16,12 @@
             <div class="my-1 mt-3">
 
                 <label for="username">ID</label>
-                <input type="text" class="textfield_css" name="username" id="username"
+                <input type="text" class="text_input_css" name="username" id="username"
                        value="{{ form.username.value|default_if_none:'' }}">
             </div>
             <div class="my-1 mt-3">
                 <label for="password">PASSWORD</label>
-                <input type="password" class="textfield_css" name="password" id="password">
+                <input type="password" class="text_input_css" name="password" id="password">
             </div>
             <button class="btn button_css my-1 mt-4" type="submit">login</button>
         </form>

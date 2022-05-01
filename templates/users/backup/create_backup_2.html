@@ -16,7 +16,7 @@
                 {% csrf_token %}
 
                 <p>
-                    <label for="{{ form.username.id_for_label }}">아이디</label>
+                    <label for="{{ form.username.id_for_label }}">{{ form.username.label }}</label>
                     <input type="text"
                            name="{{ form.username.html_name }}"
                            id="{{ form.username.id_for_label }}"
@@ -25,17 +25,16 @@
                     >
                 </p>
                 <p>
-                    <label for="{{ form.email.id_for_label }}">이메일</label>
+                    <label for="{{ form.email.id_for_label }}">{{ form.email.label }}</label>
                     <input
                             type="text"
                             name="{{ form.email.html_name }}"
                             id="{{ form.email.id_for_label }}"
                             class="text_input_css"
-
                     >
                 </p>
                 <p>
-                    <label for="{{ form.password1.id_for_label }}">비밀번호</label>
+                    <label for="{{ form.password1.id_for_label }}">{{ form.password1.label }}</label>
                     <input
                             type="password"
                             name="{{ form.password1.html_name }}"
@@ -44,7 +43,7 @@
                     >
                 </p>
                 <p>
-                    <label for="{{ form.password2.id_for_label }}">비밀번호 확인</label>
+                    <label for="{{ form.password2.id_for_label }}">{{ form.password2.label }}</label>
                     <input
                             type="password"
                             name="{{ form.password2.html_name }}"
@@ -52,6 +51,28 @@
                             class="text_input_css"
                     >
                 </p>
+{#                <p>#}
+{#                    {{ form.username.label }}#}
+{#                    {{ form.username }}#}
+{#                    {{ form.username.errors }}#}
+{#                </p>#}
+{#                <p>#}
+{#                    {{ form.email.label }}#}
+{#                    {{ form.email }}#}
+{#                    {{ form.email.errors }}#}
+{#                </p>#}
+{#                <p>#}
+{#                    {{ form.password1.label }}#}
+{#                    {{ form.password1 }}#}
+{#                    {{ form.password1.errrors }}#}
+{#                </p>#}
+{#                <p>#}
+{#                    {{ form.password2.label }}#}
+{#                    {{ form.password2 }}#}
+{#                    {{ form.password2.errors }}#}
+{#                </p>#}
+
+                {#                {{ form.as_p }}#}
                 <p><input type="submit" class="btn btn-secondary fs-5 mt-4" style="width: 8rem;"></p>
 
             </form>

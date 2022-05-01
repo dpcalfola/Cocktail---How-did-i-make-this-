@@ -7,3 +7,29 @@
     margin: 0 0 0 1rem;
     color: #CC9544;
 }
+
+
+.text_input_css:-webkit-autofill, .text_input_css:-webkit-autofill:hover, .text_input_css:-webkit-autofill:focus {
+    background: rgba(255, 255, 255, 0.0);
+    border: none;
+    border-bottom: solid 2px #361500e6;
+    outline: none;
+    margin: 0 0 0 1rem;
+    color: #CC9544;
+
+}
+
+/* Change the color to your own background color */
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus,
+input:-webkit-autofill:active {
+    background: rgba(255, 255, 255, 0.0);
+    border: none;
+    border-bottom: solid 2px #361500e6;
+    outline: none;
+    margin: 0 0 0 1rem;
+    color: #CC9544;
+    transition: background-color 5000s;
+    -webkit-text-fill-color: #CC9544 !important;
+}

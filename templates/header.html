@@ -12,10 +12,10 @@
             <ul class="nav">
                 {% if user.is_authenticated %}
                     <li class="nav-item"><a href="#" class="account_link nav-link px-3">{{ user.username }}</a></li>
-                    <li class="nav-item"><a href="{% url 'users:logout' %}" class="account_link nav-link px-3">Logout</a></li>
+                    <li class="nav-item"><a href="{% url 'users:logout' %}?next={{ request.path }}" class="account_link nav-link px-3">Logout</a></li>
                 {% else %}
                     <li class="nav-item">
-                        <a href="{% url 'users:login' %}" class="account_link nav-link px-3">Login</a>
+                        <a href="{% url 'users:login' %}?next={{ request.path }}" class="account_link nav-link px-3">Login</a>
                     </li>
                     <li class="nav-item">
                         <a href="{% url 'users:create' %}" class="account_link nav-link px-3">Sign up</a>
