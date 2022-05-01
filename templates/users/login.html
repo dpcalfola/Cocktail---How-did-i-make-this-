@@ -7,9 +7,17 @@
 
 {% block content %}
     <div class="container">
+
+        {% if new_user_id %}
+            <div class="my-5">
+                <span class="message_css">{{ new_user_id }} 계정이 생성되었습니다</span>
+            </div>
+        {% endif %}
         <div class="container">
             <h1 class="title_css mt-5">Login</h1>
         </div>
+
+
         <form method="post" action="{% url 'users:login' %}">
             {% csrf_token %}
             {% include 'form_errors.html' %}

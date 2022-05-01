@@ -19,6 +19,13 @@
 
 }
 
+.message_css{
+    font-size: 2.5rem;
+    /*color: #D8B6A4;*/
+    /*border-bottom: solid 2px #D8B6A4;*/
+
+}
+
 /* Change the color to your own background color */
 input:-webkit-autofill,
 input:-webkit-autofill:hover,

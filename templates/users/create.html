@@ -9,7 +9,6 @@
     <div class="container">
         <div class="mb-5">
             <h1>Sign Up </h1>
-            <h3>Create account using CreateView and User</h3>
         </div>
         <div class="row mt-4">
             <form action="{% url 'users:create' %}" method="post">
@@ -17,12 +16,14 @@
 
                 <p>
                     <label for="{{ form.username.id_for_label }}">아이디</label>
-                    <input type="text"
-                           name="{{ form.username.html_name }}"
-                           id="{{ form.username.id_for_label }}"
-                           class="text_input_css"
-                           autocomplete="off"
+                    <input
+                            type="text"
+                            name="{{ form.username.html_name }}"
+                            id="{{ form.username.id_for_label }}"
+                            class="text_input_css"
+                            value="{{ form.username.value|default_if_none:'' }}"
                     >
+                    {{ form.username.errors }}
                 </p>
                 <p>
                     <label for="{{ form.email.id_for_label }}">이메일</label>
@@ -31,8 +32,9 @@
                             name="{{ form.email.html_name }}"
                             id="{{ form.email.id_for_label }}"
                             class="text_input_css"
-
+                            value="{{ form.email.value|default_if_none:'' }}"
                     >
+                    {{ form.email.errors }}
                 </p>
                 <p>
                     <label for="{{ form.password1.id_for_label }}">비밀번호</label>
@@ -41,7 +43,9 @@
                             name="{{ form.password1.html_name }}"
                             id="{{ form.password1.id_for_label }}"
                             class="text_input_css"
+                            value="{{ form.password1.value|default_if_none:'' }}"
                     >
+                    {{ form.password1.errors }}
                 </p>
                 <p>
                     <label for="{{ form.password2.id_for_label }}">비밀번호 확인</label>
@@ -50,10 +54,11 @@
                             name="{{ form.password2.html_name }}"
                             id="{{ form.password2.id_for_label }}"
                             class="text_input_css"
+                            value="{{ form.password2.value|default_if_none:'' }}"
                     >
+                    {{ form.password2.errors }}
                 </p>
                 <p><input type="submit" class="btn btn-secondary fs-5 mt-4" style="width: 8rem;"></p>
-
             </form>
         </div>
     </div>

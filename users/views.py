@@ -1,8 +1,4 @@
-from django.contrib.auth.forms import UserCreationForm
-from django.contrib.auth.models import User
 from django.shortcuts import render
-from django.urls import reverse_lazy
-from django.views.generic import CreateView
 
 from .forms import UserResisterForm
 
@@ -11,15 +7,31 @@ def profile_page(request):
     return render(request, 'users/profile.html')
 
 
-class AccountCreateView(CreateView):
-    model = User
-    form_class = UserResisterForm
-    success_url = reverse_lazy('users:create_done')
-    template_name = 'users/create.html'
+def account_create(request):
+    if request.method == 'POST':
+        user_form = UserResisterForm(request.POST)
+        if user_form.is_valid():
+            new_user = user_form.save(commit=False)
+            new_user.save()
+            context = {
+                'new_user_id': new_user.username
+            }
+            return render(request, 'users/login.html', context)
+    else:
+        user_form = UserResisterForm()
 
+    context = {
+        'form': user_form,
+    }
+    return render(request, 'users/create.html', context)
 
-def create_done(request):
-    return render(request, 'users/create_done.html')
+# Replaced this CBV to FBV but don't forget how to work this way
+# class AccountCreateView(CreateView):
+#     model = User
+#     form_class = UserResisterForm
+#     success_url = reverse_lazy('users:create_done')
+#     template_name = 'users/create.html'
+
 
 # DISCARDED
 # register is going to be made in Class based view
