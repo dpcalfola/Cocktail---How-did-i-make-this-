@@ -135,7 +135,8 @@ USE_TZ = True
 STATIC_URL = 'static/'
 STATICFILES_DIRS = [
     BASE_DIR / 'static',
-    BASE_DIR / 'node_modules/bootstrap'
+    BASE_DIR / 'node_modules/bootstrap',
+    BASE_DIR / 'node_modules/bootstrap-icons',
 ]
 
 # Default primary key field type

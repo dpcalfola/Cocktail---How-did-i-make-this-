@@ -3,15 +3,56 @@
 
 {% block specific_css %}
     {# This block is located inside of <head>    #}
-    <link rel="stylesheet" type="text/css" href="{% static 'users.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'profile.css' %}">
 {% endblock %}
 
 {% block content %}
     <div class="container">
-        <div class="container">
-            <h1>{{ target_user.username }}</h1>
+        <div class="container my-5">
+            <h1>Profile</h1>
+        </div>
+        <div class="row">
+            <div class="container profile_card_outer_css">
+                <div class="card col-lg-6 py-2 px-2 profile_card_css">
+                    {#  profile picture  #}
 
+                    <img src="{% static 'temp_image/temp_wallpaper.jpg' %}" class="profile_wallpaper_css"
+                         alt="profile_wallpaper">
+                    <div class="profile_picture_outer_div_css">
+                        {% if target_user.profile.image %}
+                            <img src="#" class="card-img-top" alt="profile picture">
+                        {% else %}
+                            <img src="{% static 'icons/person.svg' %}" class="card-img-top profile_picture_css"
+                                 alt="empty profile picture">
+                        {% endif %}
+                    </div>
+
+                    <div class="card-body profile_contents">
+                        {% if target_user.profile.nickname %}
+                            <h1 class="card-title">{{ target_user.profile.nickname }}</h1>
+                        {% else %}
+                            <h4 class="card-title">(닉네임이 비어있습니다)</h4>
+                        {% endif %}
+
+                        <h3 class="card-title my-1">@{{ target_user.username }}</h3>
+                        <p class="card-text">{{ target_user.profile.introduce }}</p>
+                    </div>
+                    <div class="card-body">
+                        <a href="#" class="profile_link_css card-link">Card link</a>
+                        <a href="#" class="profile_link_css card-link">Another link</a>
+                    </div>
+
+                    <ul class="list-group list-group-flush">
+                        <li class="profile_list_css list-group-item" style="border-top: none;">
+                            <a href="" class="btn btn-secondary mt-2 fs-5">프로필 수정</a>
+                        </li>
+                    </ul>
+
+                </div>
+            </div>
         </div>
     </div>
+
+
 
 {% endblock %}

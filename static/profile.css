@@ -1,0 +1,42 @@
+.profile_card_css {
+    background-color: #CE9461;
+    color: black;
+}
+
+.profile_wallpaper_css {
+    object-position: 0 70%;
+    object-fit: cover;
+    max-height: 12rem;
+    max-width: inherit;
+    opacity: 0.9;
+}
+
+.profile_picture_outer_div_css {
+    width: 8rem;
+    background-color: #A97155;
+    position: relative;
+    top: -4rem;
+    left: 0.5rem;
+    border: solid 2px #CE9461;
+}
+
+.profile_picture_css {
+    padding: 1px;
+    width: 8rem;
+    filter: invert(94%) sepia(12%) saturate(788%) hue-rotate(323deg) brightness(95%) contrast(88%);
+}
+
+.profile_contents {
+    margin: -4rem 0 0 0;
+}
+
+
+.profile_list_css {
+    /*background-color: #00ff0000;*/
+    background-color: #CE9461;
+    color: black;
+}
+
+.profile_link_css {
+    color: black;
+}
