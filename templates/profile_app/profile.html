@@ -14,15 +14,17 @@
         <div class="row">
             <div class="container profile_card_outer_css">
                 <div class="card col-lg-6 py-2 px-2 profile_card_css">
-                    {#  profile picture  #}
+                    {#  Wallpaper  #}
 
                     <img src="{% static 'temp_image/temp_wallpaper.jpg' %}" class="profile_wallpaper_css"
                          alt="profile_wallpaper">
+
+                    {# Profile image #}
                     <div class="profile_picture_outer_div_css">
                         {% if target_user.profile.image %}
-                            <img src="#" class="card-img-top" alt="profile picture">
+                            <img src="{{ target_user.profile.image.url }}" class="card-img-top profile_image_css" alt="profile picture">
                         {% else %}
-                            <img src="{% static 'icons/person.svg' %}" class="card-img-top profile_picture_css"
+                            <img src="{% static 'icons/person.svg' %}" class="card-img-top blank_profile_image_css"
                                  alt="empty profile picture">
                         {% endif %}
                     </div>
@@ -35,7 +37,7 @@
                         {% endif %}
 
                         <h3 class="card-title my-1">@{{ target_user.username }}</h3>
-                        <p class="card-text">{{ target_user.profile.introduce }}</p>
+                        <p class="card-text" style="min-height: 3rem">{{ target_user.profile.introduce }}</p>
                     </div>
                     <div class="card-body">
                         <a href="#" class="profile_link_css card-link">Card link</a>

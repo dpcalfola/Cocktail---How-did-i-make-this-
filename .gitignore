@@ -136,3 +136,6 @@ venv_hdimt
 
 # node modules
 node_modules
+
+# Media directory
+media

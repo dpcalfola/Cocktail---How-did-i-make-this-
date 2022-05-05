@@ -1,6 +1,7 @@
 from django.shortcuts import render
 
 from .forms import UserResisterForm
+from profile_app.models import Profile
 
 
 def account_create(request):

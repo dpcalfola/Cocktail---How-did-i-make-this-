@@ -4,6 +4,8 @@
 }
 
 .profile_wallpaper_css {
+    background-color: #A64B2A;
+    padding: 4px;
     object-position: 0 70%;
     object-fit: cover;
     max-height: 12rem;
@@ -12,18 +14,25 @@
 }
 
 .profile_picture_outer_div_css {
+    padding: 4px;
     width: 8rem;
-    background-color: #A97155;
+    height: 8rem;
+    background-color: #A64B2A;
     position: relative;
     top: -4rem;
     left: 0.5rem;
-    border: solid 2px #CE9461;
+    /*border: solid 2px #CE9461;*/
 }
 
-.profile_picture_css {
-    padding: 1px;
-    width: 8rem;
+.blank_profile_image_css {
     filter: invert(94%) sepia(12%) saturate(788%) hue-rotate(323deg) brightness(95%) contrast(88%);
+}
+
+.profile_image_css {
+    object-position: 0 90%;
+    position: relative;
+    height: 7.47rem;
+    object-fit:cover;
 }
 
 .profile_contents {
