@@ -15,14 +15,13 @@
             <div class="container profile_card_outer_css">
                 <div class="card col-lg-6 py-2 px-2 profile_card_css">
                     {#  Wallpaper  #}
-
                     <img src="{% static 'temp_image/temp_wallpaper.jpg' %}" class="profile_wallpaper_css"
                          alt="profile_wallpaper">
-
                     {# Profile image #}
                     <div class="profile_picture_outer_div_css">
                         {% if target_user.profile.image %}
-                            <img src="{{ target_user.profile.image.url }}" class="card-img-top profile_image_css" alt="profile picture">
+                            <img src="{{ target_user.profile.image.url }}" class="card-img-top profile_image_css"
+                                 alt="profile picture">
                         {% else %}
                             <img src="{% static 'icons/person.svg' %}" class="card-img-top blank_profile_image_css"
                                  alt="empty profile picture">
@@ -46,7 +45,8 @@
 
                     <ul class="list-group list-group-flush">
                         <li class="profile_list_css list-group-item" style="border-top: none;">
-                            <a href="" class="btn btn-secondary mt-2 fs-5">프로필 수정</a>
+                            <a href="{% url 'profile:update' target_user.username %}"
+                               class="btn btn-secondary mt-2 fs-5">프로필 수정</a>
                         </li>
                     </ul>
 
