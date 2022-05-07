@@ -3,6 +3,12 @@
     color: black;
 }
 
+.profile_card_update_css {
+    background-color: #CE9461;
+    color: #361500;
+}
+
+
 .profile_wallpaper_css {
     background-color: #A64B2A;
     padding: 4px;
@@ -32,7 +38,7 @@
     object-position: 0 90%;
     position: relative;
     height: 7.47rem;
-    object-fit:cover;
+    object-fit: cover;
 }
 
 .profile_contents {
@@ -49,3 +55,26 @@
 .profile_link_css {
     color: black;
 }
+
+
+.profile_update_text_input_css {
+    /*background-color: #361500e6;*/
+    background: rgba(255, 255, 255, 0.0);
+    border: none;
+    border-bottom: solid 2px #361500e6;
+    outline: none;
+    margin: 0 0 0 1rem;
+    color: #A64B2A;
+}
+
+
+.profile_update_text_input_css:-webkit-autofill, .text_input_css:-webkit-autofill:hover, .text_input_css:-webkit-autofill:focus {
+    background: rgba(255, 255, 255, 0.0);
+    border: none;
+    border-bottom: solid 2px #361500e6;
+    outline: none;
+    margin: 0 0 0 1rem;
+    color: #A64B2A;
+
+}
+

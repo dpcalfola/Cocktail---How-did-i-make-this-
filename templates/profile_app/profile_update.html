@@ -17,7 +17,7 @@
         <div class="row">
             <div class="container profile_card_outer_css">
 
-                <form action="{% url 'profile:update' target_user.username %}" method="post">
+                <form action="{% url 'profile:update_page' own_profile.user.username %}" method="post" enctype="multipart/form-data">
                     {% csrf_token %}
                     <div class="card col-lg-6 py-2 px-2 profile_card_css">
                         {#  Wallpaper  #}
@@ -26,8 +26,8 @@
 
                         {# Profile image #}
                         <div class="profile_picture_outer_div_css">
-                            {% if target_user.profile.image %}
-                                <img src="{{ target_user.profile.image.url }}" class="card-img-top profile_image_css"
+                            {% if own_profile.image %}
+                                <img src="{{ own_profile.image.url }}" class="card-img-top profile_image_css"
                                      alt="profile picture">
                             {% else %}
                                 <img src="{% static 'icons/person.svg' %}" class="card-img-top blank_profile_image_css"
@@ -35,15 +35,23 @@
                             {% endif %}
                         </div>
 
-                        <div class="card-body profile_contents">
-                            {% if target_user.profile.nickname %}
-                                <h1 class="card-title">{{ target_user.profile.nickname }}</h1>
-                            {% else %}
-                                <h4 class="card-title">(닉네임이 비어있습니다)</h4>
-                            {% endif %}
 
-                            <h3 class="card-title my-1">@{{ target_user.username }}</h3>
-                            <p class="card-text" style="min-height: 3rem">{{ target_user.profile.introduce }}</p>
+                        <div class="card-body profile_contents">
+                            <h4 class="card-title my-2">@{{ own_profile.user.username }} 님의 프로필을 수정합니다</h4>
+                            <hr>
+                             Nickname
+                            <p>
+                                <label for="nickname">닉네임:</label>
+                                <input
+                                        type="text"
+                                        name="nickname"
+                                        id="nickname"
+                                        class="profile_update_text_input_css"
+                                        >
+                                {{ form.errors }}
+                            </p>
+{#                            {{ form }}#}
+                            <p class="card-text" style="min-height: 3rem">{{ own_profile.introduce }}</p>
                         </div>
                         <div class="card-body">
                             <a href="#" class="profile_link_css card-link">Card link</a>

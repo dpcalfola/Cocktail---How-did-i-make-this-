@@ -9,3 +9,6 @@ class Profile(models.Model):
     wallpaper = models.ImageField(upload_to='profile_wallpaper/', null=True, blank=True)
     nickname = models.CharField(max_length=30, unique=True, null=True, blank=True)
     introduce = models.CharField(max_length=150, null=True, blank=True)
+
+    def __str__(self):
+        return self.user.username
