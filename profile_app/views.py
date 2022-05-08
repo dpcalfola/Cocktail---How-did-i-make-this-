@@ -17,10 +17,30 @@ def profile_page(request, user_username):
 
 def profile_update_page(request, user_username):
     logged_user = get_object_or_404(User, username=user_username)
-    own_profile, is_created = Profile.objects.get_or_create(user_id=logged_user.id)
+    # own_profile, is_created = Profile.objects.get_or_create(user_id=logged_user.id)
+    own_profile, is_created = Profile.objects.get_or_create(user_id=request.user.pk)
     profile_form = ProfileUpdateForm(instance=own_profile)
 
-    if request == 'POST':
+    context = {
+        'own_profile': own_profile,
+        'form': profile_form,
+    }
+    return render(request, 'profile_app/profile_update.html', context)
+
+
+def profile_update(request, user_username):
+
+    logged_user = get_object_or_404(User, id=request.user.id)
+    # own_profile = Profile.objects.get(user_id=request.user.pk)
+    own_profile = get_object_or_404(Profile, user_id=request.user.pk)
+
+    # if request == 'POST':
+    #     return redirect('market_price:price_table')
+    # else:
+    #     return redirect('market_price:price_table')
+
+    if request.method == 'POST':
+        print('*' * 50)
         profile_form = ProfileUpdateForm(request.POST, instance=own_profile)
         if profile_form.is_valid():
             new_profile = profile_form.save(commit=False)
@@ -28,15 +48,12 @@ def profile_update_page(request, user_username):
             context = {
                 'target_user': logged_user
             }
-            return redirect('/')
-        else:
-            return HttpResponse("is_valid == False")
-
-    context = {
-        'own_profile': own_profile,
-        'form': profile_form,
-    }
-    return render(request, 'profile_app/profile_update.html', context)
+            return render(request, 'profile_app/profile.html', context)
+    else:
+        context = {
+            'target_user': logged_user
+        }
+        return render(request, 'profile_app/profile.html', context)
 
 # class ProfileCreateView(CreateView):
 #     model = Profile
