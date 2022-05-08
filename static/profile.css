@@ -1,6 +1,5 @@
 .profile_card_css {
     background-color: #CE9461;
-    color: black;
 }
 
 .profile_card_update_css {
@@ -15,6 +14,7 @@
     object-position: 0 70%;
     object-fit: cover;
     max-height: 12rem;
+    min-height: 12rem;
     max-width: inherit;
     opacity: 0.9;
 }
@@ -43,6 +43,7 @@
 
 .profile_contents {
     margin: -4rem 0 0 0;
+    color: black;
 }
 
 
@@ -58,23 +59,38 @@
 
 
 .profile_update_text_input_css {
-    /*background-color: #361500e6;*/
     background: rgba(255, 255, 255, 0.0);
     border: none;
     border-bottom: solid 2px #361500e6;
     outline: none;
     margin: 0 0 0 1rem;
-    color: #A64B2A;
+    color: black;
 }
 
 
-.profile_update_text_input_css:-webkit-autofill, .text_input_css:-webkit-autofill:hover, .text_input_css:-webkit-autofill:focus {
+.profile_update_text_input_css:-webkit-autofill,
+.profile_update_text_input_css:-webkit-autofill:hover,
+.profile_update_text_input_css:-webkit-autofill:focus,
+.profile_update_text_input_css:-webkit-autofill:active {
     background: rgba(255, 255, 255, 0.0);
     border: none;
     border-bottom: solid 2px #361500e6;
     outline: none;
     margin: 0 0 0 1rem;
-    color: #A64B2A;
+    color: black;
 
 }
 
+
+.profile_update_textarea_input_css {
+    background: rgba(255, 255, 255, 0.0);
+    border: solid 2px black;
+    outline: none;
+    display: block;
+    width: 98%;
+    color: black;
+}
+
+.profile_upload_button {
+
+}

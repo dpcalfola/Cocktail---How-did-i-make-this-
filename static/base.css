@@ -97,14 +97,16 @@ a:hover {
 }
 
 
-.text_input_css:-webkit-autofill, .text_input_css:-webkit-autofill:hover, .text_input_css:-webkit-autofill:focus {
+.text_input_css:-webkit-autofill,
+.text_input_css:-webkit-autofill:hover,
+.text_input_css:-webkit-autofill:focus,
+.text_input_css:-webkit-autofill:active{
     background: rgba(255, 255, 255, 0.0);
     border: none;
     border-bottom: solid 2px #361500e6;
     outline: none;
     margin: 0 0 0 1rem;
     color: #CC9544;
-
 }
 
 

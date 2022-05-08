@@ -7,23 +7,24 @@
 {% endblock %}
 
 {% block content %}
-    <div class="container">
-        <h1>TEST MESSAGE : profile_update.html</h1>
-    </div>
-    <div class="container">
-        <div class="container my-5">
+    <div class="container my-5">
+        <div class="container mb-3">
             <h1>Profile</h1>
         </div>
         <div class="row">
             <div class="container profile_card_outer_css">
 
-                <form action="{% url 'profile:update' own_profile.user.username %}" method="POST" enctype="multipart/form-data">
+                <form action="{% url 'profile:update' own_profile.user.username %}" method="POST"
+                      enctype="multipart/form-data">
                     {% csrf_token %}
                     <div class="card col-lg-6 py-2 px-2 profile_card_css">
                         {#  Wallpaper  #}
-                        <img src="{% static 'temp_image/temp_wallpaper.jpg' %}" class="profile_wallpaper_css"
-                             alt="profile_wallpaper">
-
+                        {% if own_profile.wallpaper %}
+                            <img src="{{ own_profile.wallpaper.url }}" class="profile_wallpaper_css"
+                                 alt="profile_wallpaper">
+                        {% else %}
+                            <div class="profile_wallpaper_css" style="background-color: #361500e6"></div>
+                        {% endif %}
                         {# Profile image #}
                         <div class="profile_picture_outer_div_css">
                             {% if own_profile.image %}
@@ -39,7 +40,18 @@
                         <div class="card-body profile_contents">
                             <h4 class="card-title my-2">@{{ own_profile.user.username }} 님의 프로필을 수정합니다</h4>
                             <hr>
-                             Nickname
+                            <p>프로필 배경 이미지 변경:
+                                <input type="file"
+                                       name="wallpaper"
+                                       id="wallpaper"
+                                >
+                            </p>
+                            <p>프로필 이미지 변경:
+                                <input type="file"
+                                       name="image"
+                                       id="image"
+                                >
+                            </p>
                             <p>
                                 <label for="nickname">닉네임:</label>
                                 <input
@@ -47,12 +59,22 @@
                                         name="nickname"
                                         id="nickname"
                                         class="profile_update_text_input_css"
-                                        >
+                                        autocomplete="off"
+                                        value="{{ own_profile.nickname }}"
+                                >
                                 {{ form.errors }}
-                                <input type="submit" value="제출" class="btn btn-secondary fs-5" style="width: 8rem;">
                             </p>
-{#                            {{ form }}#}
-                            <p class="card-text" style="min-height: 3rem">{{ own_profile.introduce }}</p>
+                            <p class="card-text mt-4" style="min-height: 3rem">
+                                {#                                <span>프로필 메시지:<br></span>#}
+                                <label for="introduce">프로필 메시지</label>
+                                <textarea
+                                        name="introduce"
+                                        id="introduce"
+                                        rows="2"
+                                        class="mt-2 profile_update_textarea_input_css"
+                                >{{ own_profile.introduce }}
+                                </textarea>
+                            </p>
                         </div>
                         <div class="card-body">
                             <a href="#" class="profile_link_css card-link">Card link</a>

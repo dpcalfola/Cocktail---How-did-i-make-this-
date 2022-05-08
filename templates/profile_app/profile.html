@@ -7,16 +7,20 @@
 {% endblock %}
 
 {% block content %}
-    <div class="container">
-        <div class="container my-5">
+    <div class="container my-5">
+        <div class="container mb-3">
             <h1>Profile</h1>
         </div>
         <div class="row">
             <div class="container profile_card_outer_css">
                 <div class="card col-lg-6 py-2 px-2 profile_card_css">
                     {#  Wallpaper  #}
-                    <img src="{% static 'temp_image/temp_wallpaper.jpg' %}" class="profile_wallpaper_css"
-                         alt="profile_wallpaper">
+                    {% if target_user.profile.wallpaper %}
+                        <img src="{{ target_user.profile.wallpaper.url }}" class="profile_wallpaper_css"
+                             alt="profile_wallpaper">
+                    {% else %}
+                        <div class="profile_wallpaper_css" style="background-color: #361500e6"></div>
+                    {% endif %}
                     {# Profile image #}
                     <div class="profile_picture_outer_div_css">
                         {% if target_user.profile.image %}
