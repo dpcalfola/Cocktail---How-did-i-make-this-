@@ -26,6 +26,7 @@ urlpatterns = [
     path('users/', include('users.urls')),
     path('market_price/', include('market_price.urls')),
     path('profile/', include('profile_app.urls')),
+    path('free_talk/', include('free_talk.urls')),
 ]
 
 urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

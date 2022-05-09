@@ -62,7 +62,6 @@
                                         autocomplete="off"
                                         value="{{ own_profile.nickname }}"
                                 >
-                                {{ form.errors }}
                             </p>
                             <p class="card-text mt-4" style="min-height: 3rem">
                                 {#                                <span>프로필 메시지:<br></span>#}
@@ -74,6 +73,9 @@
                                         class="mt-2 profile_update_textarea_input_css"
                                 >{{ own_profile.introduce }}
                                 </textarea>
+                            </p>
+                            <p>
+                                {{ form.errors }}
                             </p>
                         </div>
                         <div class="card-body">
