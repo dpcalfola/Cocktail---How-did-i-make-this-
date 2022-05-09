@@ -4,6 +4,17 @@
         <div class="container">
             <h3>This is main index page</h3>
         </div>
+        <div class="container mt-5">
+            <p>
+                {% if user.is_authenticated %}
+                    {{ user.username }}
+                    {{ user.profile.writer }}
+                {% else %}
+                    <span>no logged in</span>
+                {% endif %}
+            </p>
+        </div>
+
     </div>
 
 {% endblock %}

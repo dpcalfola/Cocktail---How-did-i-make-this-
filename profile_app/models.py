@@ -10,5 +10,13 @@ class Profile(models.Model):
     nickname = models.CharField(max_length=30, unique=True, null=True, blank=True)
     introduce = models.CharField(max_length=150, null=True, blank=True)
 
+    @property
+    def writer(self):
+        if self.nickname:
+            return self.nickname
+        else:
+            temp_writer = '@' + str(self.user.username)
+            return temp_writer
+
     def __str__(self):
         return self.user.username
