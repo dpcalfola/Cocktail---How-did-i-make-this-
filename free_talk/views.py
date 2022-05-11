@@ -11,5 +11,5 @@ class PostListView(ListView):
     model = Post
     context_object_name = 'post_list'
     template_name = 'free_talk/board.html'
-    paginate_by = 20
+    paginate_by = 8
 
