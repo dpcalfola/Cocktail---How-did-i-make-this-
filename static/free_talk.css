@@ -1,3 +1,16 @@
 .table_css {
     background-color: #CE9461;
 }
+
+.paginator_css, .paginator_css:focus, .paginator_css:active, .paginator_css:hover{
+    background-color: #CE9461;
+    border: black solid 1px;
+    color: black;
+}
+
+.paginator_css_disabled, .paginator_css_disabled:focus, .paginator_css_disabled:active, .paginator_css_disabled:hover {
+    background-color: #CE9461;
+    border: black solid 1px ;
+    color: gray;
+
+}

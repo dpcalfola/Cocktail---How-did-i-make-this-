@@ -15,22 +15,26 @@
             <h3 class="me-auto mt-auto">자유게시판</h3>
             <button class="btn btn-secondary fs-5">글 쓰기</button>
         </div>
-        {% if post_list %}
+        {# TABLE START #}
+        {% if post_page_obj %}
             {#  If there is no price data, It does not create table #}
             <div class="mt-4 table-responsive-sm">
                 {# "table_css" includes: background-color #}
                 <table class="table_css table table-sm table-striped">
                     <thead>
                     <tr>
-                        <th scope="col">#</th>
+                        <th scope="col">#글번호</th>
                         <th scope="col">제목</th>
                         <th scope="col">작성자</th>
-                        <th scope="col">작성</th>
+                        <th scope="col">작성일</th>
                     </tr>
                     </thead>
                     <tbody class="border-bottom border-dark">
 
-                    {% for post in post_list %}
+                    {% for post in post_page_obj %}
+                        <a href="">
+
+                        </a>
                         <tr>
                             <th scope="row">{{ post.id }}</th>
                             <td>{{ post.subject }}</td>
@@ -47,6 +51,78 @@
                 <span>게시글이 없습니다</span>
             </div>
         {% endif %}
+        {# TABLE END #}
+
+        {# PAGINATION START #}
+        <div class="my-4 ">
+            <ul class="pagination justify-content-center">
+
+                {# Previous Page #}
+                {% if post_page_obj.has_previous %}
+                    <li class="page-item bg-secondary">
+                        <a class="page-link text-dark paginator_css" href="?page=1">처음</a>
+                    </li>
+                    <li class="page-item bg-secondary">
+                        <a class="page-link text-dark paginator_css" href="?page={{ post_page_obj.previous_page_number }}">이전</a>
+                    </li>
+                {% else %}
+                    {# 첫페이지일 경우 비활성화 #}
+                    <li class="page-item">
+                        <a class="page-link paginator_css_disabled" tabindex="-1" aria-disabled="true" href="#">처음</a>
+                    </li>
+                    <li class="page-item">
+                        <a class="page-link paginator_css_disabled" tabindex="-1" aria-disabled="true" href="#">이전</a>
+                    </li>
+                    {# tabindex="-1" -> tab 키 반응 제외 #}
+                    {# aria-disabled="true" -> 저시력자 읽기 도구의 읽기 제외 #}
+                {% endif %}
+
+                {# Page List #}
+                {% for page_number in post_page_obj.paginator.page_range %}
+                    {# 현재 페이지에서 -5 ~ +5 범위만 출력 #}
+                    {% if page_number >= post_page_obj.number|add:-5 and page_number <= post_page_obj.number|add:5 %}
+                        {# 현재 페이지 번호 -> 강조 #}
+                        {% if page_number == post_page_obj.number %}
+                            <li class="page-item" aria-current="page">
+                                <a class="page-link paginator_css text-dark bg-secondary" href="?page={{ page_number }}">
+                                    {{ page_number }}
+                                </a>
+                            </li>
+                        {% else %}
+                            {# 나머지 -5 ~ +5 페이지 링크 #}
+                            <li class="page-item">
+                                <a class="page-link paginator_css text-dark" href="?page={{ page_number }}">
+                                    {{ page_number }}
+                                </a>
+                            </li>
+                        {% endif %}
+
+                    {% endif %}
+
+                {% endfor %}
+                {# Page List for ended at here #}
+
+                {# Next Page #}
+                {% if post_page_obj.has_next %}
+                    <li class="page-item">
+                        <a class="page-link paginator_css text-dark" href="?page={{ post_page_obj.next_page_number }}">다음</a>
+                    </li>
+                    <li class="page-item">
+                        <a class="page-link paginator_css text-dark" href="?page={{ max_index }}">마지막</a>
+                    </li>
+                {% else %}
+                    {# 마지막페이지일 경우 비활성화 #}
+                    <li class="page-item">
+                        <a class="page-link paginator_css_disabled" tabindex="-1" aria-disabled="true" href="#">다음</a>
+                    </li>
+                    <li class="page-item">
+                        <a class="page-link paginator_css_disabled" tabindex="-1" aria-disabled="true" href="#">마지막</a>
+                    </li>
+                {% endif %}
+
+            </ul>
+            {# PAGINATION END #}
+        </div>
     </div>
 
 {% endblock %}
