@@ -66,50 +66,60 @@
                         <td>
                             <label><input name="category_1" id="category_1" type="text" style="width:5rem;"
                                           class="table_input_text_css"
+                                          autocomplete="off"
                                           value="{{ form.category_1.value|default_if_none:'' }}"></label>
                         </td>
                         <td>
                             <label><input name="category_2" id="category_2" type="text" style="width:5rem;"
                                           class="table_input_text_css"
+                                          autocomplete="off"
                                           value="{{ form.category_2.value|default_if_none:'' }}"></label>
                         </td>
                         <td>
                             <label><input name="liqueur_name" id="liqueur_name" type="text"
                                           style="width:8rem;" class="table_input_text_css_required"
                                           placeholder="필수"
+                                          autocomplete="off"
                                           value="{{ form.liqueur_name.value|default_if_none:'' }}"></label></td>
                         <td>
                             <label><input name="lineup" id="lineup" type="text" style="width:6rem;"
                                           class="table_input_text_css"
+                                          autocomplete="off"
                                           value="{{ form.lineup.value|default_if_none:'' }}"></label>
                         </td>
                         <td>
                             <label><input name="aged" id="aged" type="text" style="width:4em;"
+                                          autocomplete="off"
                                           class="table_input_text_css" value="{{ form.aged.value|default_if_none:'' }}"></label>
                         </td>
                         <td>
                             <label><input name="price" id="price" type="text" style="width:6rem;"
                                           class="table_input_text_css_required" placeholder="필수"
+                                          autocomplete="off"
                                           value="{{ form.price.value|default_if_none:'' }}"></label>
                         </td>
                         <td>
                             <label><input name="size" id="size" type="text" style="width:6rem;"
                                           class="table_input_text_css_required" placeholder="필수"
+                                          autocomplete="off"
                                           value="{{ form.size.value|default_if_none:'' }}"></label>
                         </td>
                         <td>
                             <label><input name="purchasing_route" id="purchasing_route" type="text"
                                           style="width:6rem;" class="table_input_text_css_required"
+                                          autocomplete="off"
                                           value="{{ form.purchasing_route.value|default_if_none:'' }}"
                                           placeholder="필수"></label>
                         </td>
                         <td>
                             <label><input name="confirmation_date" id="confirmation_date" type="date"
                                           style="width:8rem;" class="table_input_text_css_required mt-1"
+                                          autocomplete="off"
                                           value="{{ form.confirmation_date.value|default_if_none:'' }}"></label>
                         </td>
                         <td>
                             <label><input name="note" id="note" type="text" style="width:6rem;"
+                                          autocomplete="off"
                                           class="table_input_text_css" value="{{ form.note.value|default_if_none:'' }}"></label>
                         </td>
                     </tr>
