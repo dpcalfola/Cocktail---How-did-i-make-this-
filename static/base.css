@@ -110,4 +110,11 @@ a:hover {
 }
 
 
-
+/* discarded */
+.file_upload_button{
+  padding: 6px 25px;
+  background-color:#A64B2A;
+  border-radius: 4px;
+  color: black;
+  cursor: pointer;
+}
