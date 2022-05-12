@@ -21,8 +21,34 @@
                         href="{% url 'free_talk:update' target_post.pk %}"
                 >수정
                 </a>
+                <button
+                        class="btn btn-secondary fs-5 ms-3"
+                        data-bs-toggle="collapse"
+                        data-bs-target="#collapse_delete_alert"
+                        aria-expanded="false"
+                        aria-controls="collapse_price_info"
+                        style="width: 6rem"
+                >삭제
+                </button>
             {% endif %}
+        </div>
+        <div class="my-4 collapse" id="collapse_delete_alert">
+            <p>
+                본 글을 정말로 삭제 하시겠습니까?
+            </p>
+            <form action="{% url 'free_talk:delete' pk=target_post.pk %}" method="post">
+                {% csrf_token %}
+                <div>
+                    <input type="submit" value="삭제합니다" class="btn fs-5"
+                           style="width: 8rem; background-color: #8E3200; color: wheat">
+                </div>
+            </form>
 
+            {# Show error massages #}
+            <div>
+                <span>{{ form.errors }}</span>
+            </div>
+            <br>
         </div>
         <div class="card detail_card_css mt-4">
             <div class="d-flex card-header detail_secondary_css">

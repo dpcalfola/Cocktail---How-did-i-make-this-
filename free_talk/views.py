@@ -1,8 +1,8 @@
 from django.core.paginator import Paginator
 from django.shortcuts import render
-from django.urls import reverse
+from django.urls import reverse, reverse_lazy
 from django.utils import timezone
-from django.views.generic import ListView, DetailView, UpdateView, CreateView
+from django.views.generic import ListView, DetailView, UpdateView, CreateView, DeleteView
 
 from .forms import PostForm
 from .models import Post, Comment
@@ -68,6 +68,17 @@ class PostUpdateView(UpdateView):
             'pk': self.object.pk
         }
         return reverse('free_talk:detail', kwargs=context)
+
+
+class PostDeleteView(DeleteView):
+    model = Post
+    context_object_name = 'target_post'
+    success_url = reverse_lazy('free_talk:deleted')
+    template_name = 'free_talk/detail.html'
+
+
+def deleted(request):
+    return render(request, 'free_talk/deleted.html')
 
 
 # Discarded
