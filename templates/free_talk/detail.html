@@ -1,0 +1,42 @@
+{% extends 'base.html' %}
+{% load static %}
+{% load humanize %}
+
+{% block specific_css %}
+    {# head block#}
+    <link rel="stylesheet" type="text/css" href="{% static 'free_talk.css' %}">
+{% endblock %}
+
+
+{% block content %}
+
+    <div class="container my-5">
+        <div class="d-flex">
+            <h3 class="me-auto mt-auto">{{ target_post.subject }}</h3>
+            {# 로그인 되어있는 유저와 글의 작성자가 같은경우 수정 버튼 show #}
+            {% if user.is_authenticated and target_post.author.user.pk == user.pk %}
+                <a class="btn btn-secondary fs-5" style="width: 6rem" href="#">수정</a>
+            {% endif %}
+
+        </div>
+        <div class="card detail_card_css mt-4">
+            <div class="d-flex card-header detail_secondary_css">
+                <span class="me-auto">작성자: {{ target_post.author.writer }}</span>
+                <span class="">작성일: {{ target_post.create_date }}</span>
+            </div>
+            <div class="card-body">
+                {% if target_post.content_image %}
+                    <img src="{{ target_post.content_image.url }}" alt="첨부 이미지">
+                {% endif %}
+                <div class="my-3 mx-3">
+                    <p class="card-text content_text_css">
+                        {{ target_post.content_text }}
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+{% endblock %}
+

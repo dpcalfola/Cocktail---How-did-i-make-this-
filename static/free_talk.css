@@ -2,7 +2,7 @@
     background-color: #CE9461;
 }
 
-.paginator_css, .paginator_css:focus, .paginator_css:active, .paginator_css:hover{
+.paginator_css, .paginator_css:focus, .paginator_css:active, .paginator_css:hover {
     background-color: #CE9461;
     border: black solid 1px;
     color: black;
@@ -10,7 +10,30 @@
 
 .paginator_css_disabled, .paginator_css_disabled:focus, .paginator_css_disabled:active, .paginator_css_disabled:hover {
     background-color: #CE9461;
-    border: black solid 1px ;
+    border: black solid 1px;
     color: gray;
 
 }
+
+.subject_link_css {
+    color: black;
+    text-decoration-line: none;
+
+}
+
+.subject_link_css:hover {
+    color: #A64B2A;
+}
+
+.detail_card_css {
+    background-color: #CE9461;
+    color: black;
+}
+
+.detail_secondary_css{
+    background-color: #b98355 ;
+}
+.content_text_css {
+    min-height: 20rem;
+}
+

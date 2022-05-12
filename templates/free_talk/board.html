@@ -37,7 +37,7 @@
                         </a>
                         <tr>
                             <th scope="row">{{ post.id }}</th>
-                            <td>{{ post.subject }}</td>
+                            <td><a class="subject_link_css" href="{% url 'free_talk:detail' pk=post.pk %}">{{ post.subject }}</a></td>
                             <td>{{ post.author.writer }}</td>
                             <td>{{ post.create_date }}</td>
                         </tr>
@@ -63,7 +63,8 @@
                         <a class="page-link text-dark paginator_css" href="?page=1">처음</a>
                     </li>
                     <li class="page-item bg-secondary">
-                        <a class="page-link text-dark paginator_css" href="?page={{ post_page_obj.previous_page_number }}">이전</a>
+                        <a class="page-link text-dark paginator_css"
+                           href="?page={{ post_page_obj.previous_page_number }}">이전</a>
                     </li>
                 {% else %}
                     {# 첫페이지일 경우 비활성화 #}
@@ -84,7 +85,8 @@
                         {# 현재 페이지 번호 -> 강조 #}
                         {% if page_number == post_page_obj.number %}
                             <li class="page-item" aria-current="page">
-                                <a class="page-link paginator_css text-dark bg-secondary" href="?page={{ page_number }}">
+                                <a class="page-link paginator_css text-dark bg-secondary"
+                                   href="?page={{ page_number }}">
                                     {{ page_number }}
                                 </a>
                             </li>
