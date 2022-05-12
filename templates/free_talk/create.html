@@ -1,0 +1,62 @@
+{% extends 'base.html' %}
+{% load static %}
+{% load humanize %}
+
+{% block specific_css %}
+    {# head block#}
+    <link rel="stylesheet" type="text/css" href="{% static 'free_talk.css' %}">
+{% endblock %}
+
+
+{% block content %}
+
+    <div class="container my-5">
+        <form action="{% url 'free_talk:create' %}" method="POST" enctype="multipart/form-data">
+            {% csrf_token %}
+            <div class="d-flex">
+                <h3 class="me-auto mt-auto">자유게시판 - 새 글 작성</h3>
+            </div>
+            <div class="card detail_card_css mt-4">
+                <div class="d-flex card-header detail_secondary_css">
+                    <label for="subject">제목: </label>
+                    <input
+                            type="text"
+                            name="subject"
+                            id="subject"
+                            class="free_talk_text_input_css"
+                            placeholder="제목을 입력하세요"
+                            autocomplete="off">
+                    <span class="me-auto">작성자: {{ user.profile.writer }}</span>
+                </div>
+                <div class="card-body">
+                    {% if target_post.content_image %}
+                        <img src="{{ target_post.content_image.url }}" alt="첨부 이미지">
+                    {% endif %}
+                    <div class="my-3 mx-3">
+                        <label for="content_text">내용</label>
+                        <textarea
+                                name="content_text"
+                                id="content_text"
+                                class="card-text free_talk_textarea_input_css mt-2"
+                                autocomplete="off"
+                        >
+                        </textarea>
+
+                    </div>
+                </div>
+                <ul class="list-group list-group-flush">
+                    <li class="list-group-item detail_secondary_css">
+                        <span>이미지 첨부 </span>
+                        <input type="file" name="content_image" id="content_image">
+                    </li>
+                </ul>
+
+            </div>
+            <div class="my-4">
+                <input class="btn btn-secondary" type="submit" value="제출" style="width: 6rem">
+            </div>
+        </form>
+    </div>
+
+
+{% endblock %}

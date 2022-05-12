@@ -30,10 +30,48 @@
     color: black;
 }
 
-.detail_secondary_css{
-    background-color: #b98355 ;
-}
-.content_text_css {
-    min-height: 20rem;
+.detail_secondary_css {
+    background-color: #b98355;
 }
 
+.content_text_css {
+    min-height: 20rem;
+    font-family: 'Hi Melody', cursive;
+    font-size: 1.2em;
+}
+
+
+.free_talk_text_input_css {
+    background: rgba(255, 255, 255, 0.0);
+    border: none;
+    outline: none;
+    margin: 0 0 0 1rem;
+    color: black;
+    display: block;
+    width: 80%;
+}
+
+
+.free_talk_text_input_css:-webkit-autofill,
+.free_talk_text_input_css:-webkit-autofill:hover,
+.free_talk_text_input_css:-webkit-autofill:focus,
+.free_talk_text_input_css:-webkit-autofill:active {
+    background: rgba(255, 255, 255, 0.0);
+    border: none;
+    outline: none;
+    margin: 0 0 0 1rem;
+    color: black;
+    display: block;
+    width: 80%;
+}
+
+.free_talk_textarea_input_css {
+    background: rgba(255, 255, 255, 0.0);
+    /*border: none;*/
+    border: solid 1px black;
+    outline: none;
+    display: block;
+    min-height: 30rem;
+    width: 98%;
+    color: black;
+}

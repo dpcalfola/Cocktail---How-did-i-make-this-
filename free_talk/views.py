@@ -1,7 +1,8 @@
 from django.core.paginator import Paginator
 from django.shortcuts import render
 from django.urls import reverse
-from django.views.generic import ListView, DetailView, UpdateView
+from django.utils import timezone
+from django.views.generic import ListView, DetailView, UpdateView, CreateView
 
 from .forms import PostForm
 from .models import Post, Comment
@@ -35,6 +36,25 @@ class PostDetailView(DetailView):
     model = Post
     context_object_name = 'target_post'
     template_name = 'free_talk/detail.html'
+
+
+class PostCreateView(CreateView):
+    model = Post
+    form_class = PostForm
+    template_name = 'free_talk/create.html'
+
+    def form_valid(self, form):
+        temp_post = form.save(commit=False)
+        temp_post.author = self.request.user.profile
+        temp_post.create_date = timezone.now()
+        temp_post.save()
+        return super().form_valid(form)
+
+    def get_success_url(self):
+        context = {
+            'pk': self.object.pk,
+        }
+        return reverse('free_talk:detail', kwargs=context)
 
 
 class PostUpdateView(UpdateView):

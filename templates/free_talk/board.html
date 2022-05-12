@@ -13,7 +13,7 @@
     <div class="container my-5">
         <div class="d-flex">
             <h3 class="me-auto mt-auto">자유게시판</h3>
-            <button class="btn btn-secondary fs-5">글 쓰기</button>
+            <a class="btn btn-secondary fs-5" href="{% url 'free_talk:create' %}">글 쓰기</a>
         </div>
         {# TABLE START #}
         {% if post_page_obj %}
@@ -75,7 +75,7 @@
                         <a class="page-link paginator_css_disabled" tabindex="-1" aria-disabled="true" href="#">이전</a>
                     </li>
                     {# tabindex="-1" -> tab 키 반응 제외 #}
-                    {# aria-disabled="true" -> 저시력자 읽기 도구의 읽기 제외 #}
+                    {# aria-disabled="true" -> 저시력자를 위한 읽기 도구가 비활성 버튼임을 알려줌 #}
                 {% endif %}
 
                 {# Page List #}
