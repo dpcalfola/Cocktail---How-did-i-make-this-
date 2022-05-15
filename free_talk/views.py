@@ -1,5 +1,5 @@
 from django.core.paginator import Paginator
-from django.http import HttpResponseRedirect
+from django.http import HttpResponseRedirect, HttpResponseForbidden
 from django.shortcuts import render
 from django.urls import reverse, reverse_lazy
 from django.utils import timezone
@@ -44,10 +44,19 @@ class PostCreateView(CreateView):
     form_class = PostForm
     template_name = 'free_talk/create.html'
 
+    # (GET)
     # When user is not logged in, redirect to login page
     def get(self, *args, **kwargs):
         if self.request.user.is_authenticated:
             return super().get(*args, **kwargs)
+        else:
+            return HttpResponseRedirect(reverse('users:login'))
+
+    # (POST)
+    # When uisr is not logged in, redirect to login page
+    def post(self, request, *args, **kwargs):
+        if self.request.user.is_authenticated:
+            return super().post(request, *args, **kwargs)
         else:
             return HttpResponseRedirect(reverse('users:login'))
 
@@ -71,12 +80,21 @@ class PostUpdateView(UpdateView):
     form_class = PostForm
     template_name = 'free_talk/update.html'
 
-    # When user is not logged in or target Post author is not same as logged user, redirect to login page
+    # (GET)
+    # When user is not logged in or target Post author is not same as logged user, raise 403 forbidden error
     def get(self, *args, **kwargs):
         if self.request.user.is_authenticated and self.get_object().author == self.request.user.profile:
             return super().get(*args, **kwargs)
         else:
-            return HttpResponseRedirect(reverse('users:login'))
+            return HttpResponseForbidden()
+
+    # (POST)
+    # When user is not logged in or target Post author is not same as looged user, raise 403 frobdden error
+    def post(self, request, *args, **kwargs):
+        if self.request.user.is_authenticated and self.get_object().author == self.request.user.profile:
+            return super().post(request, *args, **kwargs)
+        else:
+            return HttpResponseForbidden
 
     def get_success_url(self):
         context = {
@@ -91,12 +109,21 @@ class PostDeleteView(DeleteView):
     success_url = reverse_lazy('free_talk:deleted')
     template_name = 'free_talk/detail.html'
 
-    # When user is not logged in or target Post author is not same as logged user, redirect to login page
+    # (GET)
+    # When user is not logged in or target Post author is not same as logged user, raise 403 forbidden error
     def get(self, *args, **kwargs):
         if self.request.user.is_authenticated and self.get_object().author == self.request.user.profile:
             return super().get(*args, **kwargs)
         else:
-            return HttpResponseRedirect(reverse('users:login'))
+            return HttpResponseForbidden()
+
+    # (POST)
+    # When user is not logged in or target Post author is not same as logged user, raise 403 forbidden error
+    def post(self, *args, **kwargs):
+        if self.request.user.is_authenticated and self.get_object().author == self.request.user.profile:
+            return super().post(*args, **kwargs)
+        else:
+            return HttpResponseForbidden()
 
 
 def deleted(request):
