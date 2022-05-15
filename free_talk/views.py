@@ -1,4 +1,5 @@
 from django.core.paginator import Paginator
+from django.http import HttpResponseRedirect
 from django.shortcuts import render
 from django.urls import reverse, reverse_lazy
 from django.utils import timezone
@@ -43,6 +44,13 @@ class PostCreateView(CreateView):
     form_class = PostForm
     template_name = 'free_talk/create.html'
 
+    # When user is not logged in, redirect to login page
+    def get(self, *args, **kwargs):
+        if self.request.user.is_authenticated:
+            return super().get(*args, **kwargs)
+        else:
+            return HttpResponseRedirect(reverse('users:login'))
+
     def form_valid(self, form):
         temp_post = form.save(commit=False)
         temp_post.author = self.request.user.profile
@@ -63,6 +71,13 @@ class PostUpdateView(UpdateView):
     form_class = PostForm
     template_name = 'free_talk/update.html'
 
+    # When user is not logged in or target Post author is not same as logged user, redirect to login page
+    def get(self, *args, **kwargs):
+        if self.request.user.is_authenticated and self.get_object().author == self.request.user.profile:
+            return super().get(*args, **kwargs)
+        else:
+            return HttpResponseRedirect(reverse('users:login'))
+
     def get_success_url(self):
         context = {
             'pk': self.object.pk
@@ -75,6 +90,13 @@ class PostDeleteView(DeleteView):
     context_object_name = 'target_post'
     success_url = reverse_lazy('free_talk:deleted')
     template_name = 'free_talk/detail.html'
+
+    # When user is not logged in or target Post author is not same as logged user, redirect to login page
+    def get(self, *args, **kwargs):
+        if self.request.user.is_authenticated and self.get_object().author == self.request.user.profile:
+            return super().get(*args, **kwargs)
+        else:
+            return HttpResponseRedirect(reverse('users:login'))
 
 
 def deleted(request):
