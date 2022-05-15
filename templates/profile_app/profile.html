@@ -47,12 +47,15 @@
                         <a href="#" class="profile_link_css card-link">Another link</a>
                     </div>
 
-                    <ul class="list-group list-group-flush">
-                        <li class="profile_list_css list-group-item" style="border-top: none;">
-                            <a href="{% url 'profile:update_page' target_user.username %}"
-                               class="btn btn-secondary mt-2 fs-5">프로필 수정</a>
-                        </li>
-                    </ul>
+                    {% if user.pk == target_user.pk %}
+                        <ul class="list-group list-group-flush">
+                            <li class="profile_list_css list-group-item" style="border-top: none;">
+                                <a href="{% url 'profile:update_page' target_user.username %}"
+                                   class="btn btn-secondary mt-2 fs-5">프로필 수정</a>
+                            </li>
+                        </ul>
+                    {% endif %}
+
 
                 </div>
             </div>
