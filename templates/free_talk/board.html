@@ -37,8 +37,8 @@
                         </a>
                         <tr>
                             <th scope="row">{{ post.id }}</th>
-                            <td><a class="subject_link_css" href="{% url 'free_talk:detail' pk=post.pk %}">{{ post.subject }}</a></td>
-                            <td>{{ post.author.writer }}</td>
+                            <td><a class="free_talk_link_css" href="{% url 'free_talk:detail' pk=post.pk %}">{{ post.subject }}</a></td>
+                            <td><a class="free_talk_link_css" href="{% url 'profile:profile' post.author.user.username %}">{{ post.author.writer }}</a></td>
                             <td>{{ post.create_date }}</td>
                         </tr>
                     {% endfor %}

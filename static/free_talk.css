@@ -15,13 +15,13 @@
 
 }
 
-.subject_link_css {
+.free_talk_link_css {
     color: black;
     text-decoration-line: none;
 
 }
 
-.subject_link_css:hover {
+.free_talk_link_css:hover {
     color: #A64B2A;
 }
 
