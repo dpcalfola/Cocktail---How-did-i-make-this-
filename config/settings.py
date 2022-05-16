@@ -42,6 +42,9 @@ DJANGO_APPS = [
 
     # 정수 3자리마다 콤마 찍기 위한 추가 장고 앱
     'django.contrib.humanize',
+
+    # media 파일 변경시 기존 데이터를 삭제하는 패키지
+    'django_cleanup.apps.CleanupConfig',
 ]
 
 PROJECT_APPS = [
