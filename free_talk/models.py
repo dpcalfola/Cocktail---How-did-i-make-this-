@@ -7,21 +7,6 @@ from profile_app.models import Profile
 from snippets.image_logic import compress_image
 
 
-# # For image compression
-# from io import BytesIO
-# from PIL import Image
-# from django.core.files import File
-#
-#
-# # Image compression method
-# def compress_image(image):
-#     temp_image = Image.open(image).convert('RGB')
-#     temp_image_io = BytesIO()
-#     temp_image.save(temp_image_io, 'jpeg', quality=80)
-#     new_image = File(temp_image_io, name=image.name)
-#     return new_image
-
-
 class Post(models.Model):
     subject = models.CharField(max_length=200)
     content_text = models.TextField()

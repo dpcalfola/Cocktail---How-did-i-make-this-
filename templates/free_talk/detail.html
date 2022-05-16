@@ -62,7 +62,7 @@
             </div>
             <div class="card-body">
                 {% if target_post.content_image %}
-                    <img src="{{ target_post.content_image.url }}" alt="첨부 이미지" style="width: 30vh">
+                    <img src="{{ target_post.content_image.url }}" alt="첨부 이미지" style="max-height: 50vh">
                 {% endif %}
                 <div class="my-3 mx-3">
                     <pre class="card-text content_text_css">{{ target_post.content_text }}
