@@ -46,8 +46,6 @@ DJANGO_APPS = [
     # media 파일 변경시 기존 데이터를 삭제하는 패키지
     'django_cleanup.apps.CleanupConfig',
 
-    # media resize package
-    'sorl.thumbnail',
 ]
 
 PROJECT_APPS = [
