@@ -27,7 +27,7 @@ SECRET_KEY = secret_env.SECRET_KEY['SECRET_KEY']
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = secret_env.DEBUG['DEBUG']
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['*']
 
 # Application definition
 
