@@ -10,6 +10,7 @@ def account_create(request):
         if user_form.is_valid():
             new_user = user_form.save(commit=False)
             new_user.save()
+            Profile.objects.create(user=new_user)
             context = {
                 'new_user_id': new_user.username
             }
