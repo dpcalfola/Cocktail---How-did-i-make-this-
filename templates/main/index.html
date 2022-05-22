@@ -1,20 +1,32 @@
 {% extends 'base.html' %}
 {% block content %}
     <div class="container mt-5">
-        <div class="container">
-            <h3>This is main index page</h3>
+        {#        <div class="container mt-5">#}
+        {#            {% if user.is_authenticated %}#}
+        {#                <h2>{{ user.profile.writer }}님 반갑습니다 !!</h2>#}
+        {#            {% endif %}#}
+        {#        </div>#}
+        <div class="my-2">
+            <h1> 칵테일 레시피와 주류 가격의 정보를 공유 할 수 있는 곳입니다. </h1>
         </div>
         <div class="container mt-5">
-            <p>
+            <h3>현재 이용 가능한 서비스</h3>
+            <ul>
+                <li>
+                    <a href="{% url 'market_price:price_table' %}" class="nav_menu_css nav-link px-2">주류가격 정보공유</a>
+                </li>
+                <li>
+                    <a href="{% url 'free_talk:board' %}" class="nav_menu_css nav-link px-2">자유게시판</a>
+                </li>
                 {% if user.is_authenticated %}
-                    {{ user.username }}
-                    {{ user.profile.writer }}
+                    <li><a href="{% url 'profile:profile' user.username %}"
+                           class="nav_menu_css nav-link px-2">프로필 편집</a></li>
                 {% else %}
-                    <span>no logged in</span>
+                    <li><a href="{% url 'users:login' %}?next={{ request.path }}"
+                           class="nav_menu_css nav-link px-2">프로필 편집</a></li>
                 {% endif %}
-            </p>
+            </ul>
         </div>
-
     </div>
 
 {% endblock %}

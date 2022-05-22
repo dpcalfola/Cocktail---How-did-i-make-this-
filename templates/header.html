@@ -2,7 +2,7 @@
     <nav class="py-1">
         <div class="container d-flex flex-wrap">
             <ul class="nav me-auto">
-                <li class="nav-item"><a href="#" class="nav_menu_css nav-link px-2">Home</a></li>
+                <li class="nav-item"><a href="{% url 'main:index' %}" class="nav_menu_css nav-link px-2">/홈</a></li>
                 {% if user.is_authenticated %}
                     <li class="nav-item"><a href="{% url 'profile:profile' user.username %}"
                                             class="nav_menu_css nav-link px-2">/프로필</a></li>
