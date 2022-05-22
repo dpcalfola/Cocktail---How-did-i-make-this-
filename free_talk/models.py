@@ -16,8 +16,10 @@ class Post(models.Model):
 
     # Override .save
     def save(self, *args, **kwargs):
-        new_content_image = compress_image(self.content_image)
-        self.content_image = new_content_image
+        # If there's no self.content_image, imagecompression logic does not work
+        if self.content_image:
+            new_content_image = compress_image(self.content_image)
+            self.content_image = new_content_image
         super().save(*args, **kwargs)
 
     def __str__(self):

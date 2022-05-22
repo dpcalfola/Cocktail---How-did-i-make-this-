@@ -21,10 +21,14 @@ class Profile(models.Model):
             return temp_writer
 
     def save(self, *args, **kwargs):
-        new_image = compress_image(self.image, size=(500, 500))
-        self.image = new_image
-        new_wallpaper = compress_image(self.wallpaper)
-        self.wallpaper = new_wallpaper
+        # If there's no self.image, imagecompression logic does not work
+        if self.image:
+            new_image = compress_image(self.image, size=(500, 500))
+            self.image = new_image
+        # If there's no self.wallpaper, imagecompression logic does not work
+        if self.wallpaper:
+            new_wallpaper = compress_image(self.wallpaper)
+            self.wallpaper = new_wallpaper
         super().save(*args, **kwargs)
 
     def __str__(self):
