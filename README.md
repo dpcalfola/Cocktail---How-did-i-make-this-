@@ -11,6 +11,9 @@
 >
 > 주류 가격과 칵테일 레시피 정보 공유를 주요 기능으로 내세운 술 커뮤니티 웹 애플리케이션
 
+>[3주차 ORM 발표 ppt PDF (Download)](https://drive.google.com/file/d/1SR0sL2E_e0eVl3LOhmga6DvBPivja6zB/view?usp=share_link)
+>
+> java 와 mybatis 를 사용하는 국비 교육 동료 수강생을 대상으로 ORM 의 개념을 설명하는 발표
 
 <br>
 
@@ -48,7 +51,7 @@
 >   * 웹 개발의 이해
 >   * 과정 기록형 프로젝트
 >     * 개발 과정을 시간순/주제별로 분류하여 블로그에 기록
->       * [개발 과정 기록 블로그 링크](https://dpcalfola.tistory.com/entry/20220921-Django-pojc-A4-%EA%B0%9C%EB%B0%9C%EA%B3%BC%EC%A0%95-%EC%A0%95%EB%A6%AC-%ED%8E%98%EC%9D%B4%EC%A7%80)
+>       * [개발 과정 기록 블로그 링크](https://dpcalfola.tistory.com/entry/20220921-Django-pojc-A4)
 >     * JavaFX를 사용한 첫 프로젝트가 과정 기록 미흡으로 개발 경험의 지속적 유지 측면에서의 비효율성 인식 
 >     * 프로젝트 이후 유사한 개발 환경에서 개발 시 과거 경험을 빠르게 상기시켜 이용할 수 있도록 문서 작성  
 
