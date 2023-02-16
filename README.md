@@ -11,7 +11,7 @@
 >
 > 주류 가격과 칵테일 레시피 정보 공유를 주요 기능으로 내세운 술 커뮤니티 웹 애플리케이션
 
->[3주차 ORM 발표 ppt PDF (Download)](https://drive.google.com/file/d/1SR0sL2E_e0eVl3LOhmga6DvBPivja6zB/view?usp=share_link)
+>[3주차 ORM 발표 ppt](https://drive.google.com/file/d/1SR0sL2E_e0eVl3LOhmga6DvBPivja6zB/view?usp=share_link)
 >
 > java 와 mybatis 를 사용하는 국비 교육 동료 수강생을 대상으로 ORM 의 개념을 설명하는 발표
 
